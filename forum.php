@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start();?>
 
 <!DOCTYPE html>
 <html lang="en"> 
@@ -38,10 +38,8 @@
                                 <table class="table" style="margin: auto; border-top:none;" >
                                   <thead>
                                     <tr>
-                                      <th scope="col"  style="border:none;">Number</th>
                                       <th scope="col"  style="border:none;">Question</th>
                                       <th scope="col"  style="border:none;">From</th>
-                                      <th scope="col"  style="border:none;">Date</th>
                                     </tr>
                                   </thead>
                                   <tbody> 
@@ -56,11 +54,9 @@
                 
                 
                 echo " <tr>   
-                    <td>" .$row["qid"]. "</td> 
                     <td>" .$row["question"]."</td> 
                     <td>" .$row["username"]."</td> 
-                    <td>" .$row["date"]."</td> 
-                    <td> <a href='question/select_question.inc.php?qid=".$row["qid"]."'> more </a> </td>
+                    <td> <a href='select_question.php?qid=".$row["qid"]."'> more </a> </td>
                 </tr>";
             }
         }
@@ -71,8 +67,26 @@
         ?>
   </tbody>
     </table>
+    
+    
 </div> 
     </div>
+<div class = "contentt" style="text-align: center;"> 
+    <br>
+    <br>
+    <?php 
+        if (isset($_SESSION["username"])){
+               echo "<p><a href = 'question.php'>Add a question!</a></p>";
+        }
+    
+        else {
+            echo "<p>You must be <a href = 'login.php'>logged in</a> to be able to post a question!</p>";
+        }
+        
+    ?>
+    </div>
+
+    
 </body>
 
   <footer> 

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en"> 
 
@@ -31,13 +32,13 @@
                             <div class="card-body bg-light">
 
                                 <div class="container-fluid">
-                                    <form action="question/question.inc.php" method="POST" id="question-form" role="form">
+                                    <form action="post_question.inc.php" method="POST" id="question-form" role="form">
                                         <div class="controls">
 
                                             <div class="row">
 
                                                 <div class="col-md-12">
-                                                    <div class="form-group"> <label >Question</label> <input type="text" name="username" class="form-control" placeholder="Please enter your question" required="required" data-error="Question is required."> </div>
+                                                    <div class="form-group"> <label >Question</label> <input type="text" name="question" class="form-control" placeholder="Please enter your question" required="required" data-error="Question is required."> </div>
                                                 </div>
                                             </div>
                                             
@@ -46,10 +47,9 @@
                                             <div class="text-center mt-3">
                                                 <button type="submit" class="btn btn-primary btn-block" name="submit">Post Question</button> 
                                             </div>
-                                
-                                        </div>
                                     </form>
                                 </div>
+                            </div>
                             </div>
                         </div>
                     </div>
