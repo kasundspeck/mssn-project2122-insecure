@@ -20,9 +20,11 @@
 
 <body>
 
-<?php include_once 'navifooter/navi.php'; 
-    
-     $conn = mysqli_connect("localhost", "root", "", "mssn-project2122");
+<?php 
+
+    include_once 'navifooter/navi.php';  
+    include_once 'dbconnection.php';
+
      $sql = "SELECT * FROM questions";
      $result = $conn->query($sql);
     
@@ -51,8 +53,6 @@
         if($result->num_rows > 0) {
             while ($row = $result-> fetch_assoc()){
                 
-                
-                
                 echo " <tr>   
                     <td>" .$row["question"]."</td> 
                     <td>" .$row["username"]."</td> 
@@ -71,12 +71,11 @@
     
 </div> 
     </div>
-<div class = "contentt" style="text-align: center;"> 
-    <br>
-    <br>
+<div class = "contentt" style="text-align: center; margin-top: -25px;"> 
+
     <?php 
         if (isset($_SESSION["username"])){
-               echo "<p><a href = 'question.php'>Add a question!</a></p>";
+               echo "<a href = 'question.php'> <button class='btn btn-primary btn-block' name='submit'> Add a question! </button> </a>";
         }
     
         else {

@@ -24,25 +24,18 @@
 
 <div class="contentt">
 
-  <h1> WELCOME TO OUR PROJECT OF MANAGEMENT OF SYSTEM SECURITY AND NETWORK </h1> 
+  <h1> SELECT TOPIC </h1> 
+    <select><script>
 
-  <h3> by Hanna Mayr & Enisa Huseni </h3> <br>  <br>
+    document.write("<OPTION value=1>"+decodeURIComponent(document.location.href.substring(document.location.href.indexOf("default=")+8))+"</OPTION>");
 
-  <?php
+    document.write("<OPTION value=2>Front-End</OPTION>");
+    document.write("<OPTION value=3>Back-End</OPTION>");
 
-          if (isset($_SESSION["username"])) {
 
-            echo " <h3> Hello " .$_SESSION["nameu"] . "! </h3>"; 
-          }   
-          
-    ?>
+    </script></select>
       
 </div> 
-        <div class = "contentt" style="text-align: center;"> 
-        <br>
-        <br>
-        <p><a href = 'language.php'>Topics</a></p>
-    </div>
 </body>
 
   <footer> 

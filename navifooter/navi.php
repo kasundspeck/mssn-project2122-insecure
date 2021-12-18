@@ -8,8 +8,8 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
-    <li class="nav-item">
-        <a class="nav-link" href="forum.php">Forum</a>
+      <li class="nav-item">
+      <a class="nav-link" href="forum.php">Forum</a>
       </li>
     </ul>
   
@@ -20,7 +20,8 @@
       echo "<div id='signuplogin'>";
 
       if (isset($_SESSION["username"])) {
-          echo "<a href='signuplogin/logout.inc.php'> <button type='button' class='btn btn-outline-primary'>  LOG OUT  </button> </a>";
+          echo " <a href='settings.php'><button type='button' class='btn btn-outline-primary'> ACCOUNT </button></a> 
+                 <a href='signuplogin/logout.inc.php'><button type='button' class='btn btn-outline-primary'>  LOG OUT  </button></a>";
 
       } 
 

@@ -58,7 +58,12 @@
                                         
                                             }
 
-                                            else if($_GET["status"]== "wronginfo") {
+                                            if ($_GET["status"]== "tocomment") {
+                                                echo "<script type='text/javascript'>alert('In order to be able to comment or make questions, you must first log into our website!');</script>";
+                                            
+                                            }
+
+                                            if ($_GET["status"]== "wronginfo") {
                                                 echo "<script type='text/javascript'>alert('Wrong log in information. Try again!');</script>";
                                             
                                             }

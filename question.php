@@ -32,7 +32,7 @@
                             <div class="card-body bg-light">
 
                                 <div class="container-fluid">
-                                    <form action="post_question.inc.php" method="POST" id="question-form" role="form">
+                                    <form action="questioncomment/post_question.inc.php" method="POST" id="question-form" role="form">
                                         <div class="controls">
 
                                             <div class="row">

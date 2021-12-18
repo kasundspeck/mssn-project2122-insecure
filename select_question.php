@@ -20,12 +20,15 @@
 
 <body>
 
-<?php include_once 'navifooter/navi.php'; 
+<?php 
+
+    include_once 'navifooter/navi.php'; 
+    include_once 'dbconnection.php';
     
-    $qid = $_GET["qid"]; 
-    
-     $conn = mysqli_connect("localhost", "root", "", "mssn-project2122");
-     $sql = "SELECT * FROM questions WHERE qid = " . $qid;
+    $qid = $_GET["qid"];
+
+    $sql = "SELECT * FROM questions WHERE qid =" . $qid;
+
      $result = $conn->query($sql);
     
     ?>
@@ -38,7 +41,7 @@
                                 <table class="table" style="margin: auto; border-top:none;" >
                                   <thead>
                                     <tr>
-                                      <th scope="col"  style="border:none;">Question</th>
+                                      <th scope="col"  style="border:none;">Question <?php echo $qid; ?> </th>
                                       <th scope="col"  style="border:none;">From</th>
                                     </tr>
                                   </thead>
@@ -53,7 +56,7 @@
                 
                 
                 echo " <tr>   
-                    <td>" .$row["question"]."</td> 
+                    <td> <span style='font-size: 25px;'>" .$row["question"]."</span></td> 
                     <td>" .$row["username"]."</td> 
                 </tr>";
             }
@@ -64,7 +67,7 @@
     </table>
     
 <br> 
-<p>Comments</p>
+<p> <strong> Comments </strong></p>
  <?php 
     
      $sql2 = "SELECT comments.message, comments.username FROM comments, questions WHERE questions.qid = " . $qid . " and comments.question_id = questions.qid";
@@ -72,8 +75,10 @@
     
     if($result->num_rows >= 1) {
             while ($row2 = $result2-> fetch_assoc()){
-                echo $row2['username'] . " : "
-                    . $row2['message'] . " </br>";
+                echo "<span style='color: darkblue'>".
+                
+                $row2['username'] . "</span>: "
+                    . $row2['message'] . " </br> <br>";
             }
         }
         else {
@@ -90,27 +95,20 @@
                echo     "<div class='contentt'>
                         <div id='form'>
                                     <div class='col-lg-7 mx-auto'>
-                                        <div class='card mt-2 mx-auto p-9 bg-light'>
-
+                                        <div class='card mt-2 mx-auto p-10 bg-light'>
                                         <div class='text-center mt-5'>
                                             <p id='' style='font-size: 20px;'> <strong> Add a comment</strong></p>
-                                            <p>Type your comment below</p>
                                         </div>
-
                                             <div class='card-body bg-ligh'>
-
                                                 <div class='container-fluid'>
-                                                    <form action='post_comment.inc.php?qid=" .$qid. "' method='POST' id='comment-form' role='form'>
+                                                    <form action='questioncomment/post_comment.inc.php?qid=" .$qid. "' method='POST' id='comment-form' role='form'>
                                                         <div class='controls'>
-
                                                             <div class='row'>
                                                                 <div class='col-md-12'>
-                                                                    <div class='form-group'> <label >Comment</label> <input type='text' name='comment' class='form-control' placeholder='Please enter your comment' required='required' data-error='Comment is required.'> </div>
+                                                                    <div class='form-group'> <label></label> <input type='text' name='comment' class='form-control' placeholder='Please enter your comment' required='required' data-error='Comment is required.'> </div>
                                                                 </div>
                                                             </div>
-
                                                             </div>
-
                                                             <div class='text-center mt-3'>
                                                                 <button type='submit' class='btn btn-primary btn-block' name='submit'>Post Comment</button> 
                                                             </div>
