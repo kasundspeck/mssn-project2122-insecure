@@ -12,7 +12,7 @@ $password = $_POST["password"];
 
   
 
-    if (mysqli_num_rows($result) == 1){
+    if (mysqli_num_rows($result) >= 1){
         
         header("location: ../index.php");  
         
