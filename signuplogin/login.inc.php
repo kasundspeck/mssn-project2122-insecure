@@ -6,7 +6,7 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 
 
-    $sql = "SELECT * FROM users WHERE Username = '$username' AND PasswordU = '$password';";
+    $sql = "SELECT * FROM users WHERE Username = '$username' AND (PasswordU = '$password');";
     $result = mysqli_query($conn, $sql);
     $fetch = mysqli_fetch_assoc($result);
 
